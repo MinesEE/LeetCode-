@@ -17,6 +17,9 @@ not point back
 3. Even when we see repeated char, we still need to 
 put new repeated char into HashMap
 4. Another test case is "abba"
+5. Essentially, every time, we are calculating the max 
+size ending at index i as we scan i from 0 to s.length()
+6. time complexity: O(n), space complexity: O(n)
 */
 
 import java.util.*;
