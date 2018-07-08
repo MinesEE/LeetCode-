@@ -90,8 +90,7 @@ public class 008StringtoIntegerAtoi {
         }
     }
     public static void main(String[] args) {
-        String s = "+";
-        int res = myAtoi(s);
-        System.out.println(res);
+        String s = " ";
+        System.out.println(s.trim());
     }
 }
