@@ -47,3 +47,5 @@ public class 005LongestPalindromicSubstring {
     	return res;
     }
 }
+
+// DP solution 
