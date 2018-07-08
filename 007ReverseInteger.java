@@ -41,9 +41,6 @@ public class 007ReverseInteger {
         }
 	    return sum;
     }
-    public static void main(String[] args) {
-    	int x = 123;
-    }
 }
 
 
