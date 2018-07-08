@@ -28,19 +28,19 @@ will overflow.
 x / 10 != 0. This makes code neat.
 */
 public class 007ReverseInteger {
-	public static int reverse(int x) {
+    public static int reverse(int x) {
 	    int sum = 0;
 	    int cur;
 	    while (x != 0) {
-			cur = sum;
-			sum  = sum * 10 + x % 10;
-			if (sum / 10 != cur) {
-				return 0;
-			}
-			x = x / 10;
-		}
-		return sum;
-	}
+		    cur = sum;
+		    sum  = sum * 10 + x % 10;
+		    if (sum / 10 != cur) {
+			    return 0;
+		    }
+		    x = x / 10;
+        }
+	    return sum;
+    }
 }
 
 
