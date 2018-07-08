@@ -42,3 +42,7 @@ public class 007ReverseInteger {
 		return sum;
 	}
 }
+
+
+// https://github.com/Blankj/awesome-java-leetcode
+// Use long type 
