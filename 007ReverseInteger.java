@@ -23,7 +23,9 @@ the reversed integer overflows.
 /**
 Idea: 
 1. key is the way how we tell if the reverse of an integer 
-will overflow.
+will overflow. 
+2. We can use x != 0 as a terminating condition instead of 
+x / 10 != 0. This makes code neat.
 */
 public class 007ReverseInteger {
 	public static int reverse(int x) {
