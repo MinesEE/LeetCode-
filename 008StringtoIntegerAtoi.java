@@ -123,9 +123,9 @@ public class 008StringtoIntegerAtoi {
             pt++;
         }
         sum = sign * sum;
-        if (sum >= Integer.MAX_VALUE) {
+        if (sum > Integer.MAX_VALUE) {
             return Integer.MAX_VALUE;
-        } else if (sum <= Integer.MIN_VALUE) {
+        } else if (sum < Integer.MIN_VALUE) {
             return Integer.MIN_VALUE;
         } else {
             return (int) sum;
