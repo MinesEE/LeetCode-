@@ -31,7 +31,9 @@ Input: "42"
 Output: 42
 
 
-*/
+*/ 
+
+/** My lengthy and possibly wrong approach... */
 import java.util.*;
 public class 008StringtoIntegerAtoi {
     public static int myAtoi(String str) {
@@ -92,5 +94,41 @@ public class 008StringtoIntegerAtoi {
     public static void main(String[] args) {
         String s = " ";
         System.out.println(s.trim());
+    }
+}
+
+/** Approach from leetcode 
+1. we can use trim to get rid of ' ' space characters 
+2. we can use Character.isDigit to see if 'x' x is a digit or not
+3. if it is a digit, we can extract the number in 'x' by 'x' - '0'.
+*/
+public class 008StringtoIntegerAtoi {
+    public static int myAtoi(String str) {
+        if (str == null) return 0;
+        str = str.trim();
+        if (str.length() == 0) return 0;
+        
+        int sign = 1;
+        double sum = 0;
+        int pt = 0;
+        
+        if (str.charAt(0) == '-') {
+            sign = -1;
+            pt++;
+        } else if (str.charAt(0) == '+') {
+            pt++;
+        }
+        while (pt < str.length() && Character.isDigit(str.charAt(pt))) {
+            sum = 10 * sum + (str.charAt(pt) - '0');
+            pt++;
+        }
+        sum = sign * sum;
+        if (sum >= Integer.MAX_VALUE) {
+            return Integer.MAX_VALUE;
+        } else if (sum <= Integer.MIN_VALUE) {
+            return Integer.MIN_VALUE;
+        } else {
+            return (int) sum;
+        }
     }
 }
