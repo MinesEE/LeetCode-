@@ -40,3 +40,18 @@ class 009PalindromeNumber {
         return (sum == x || sum / 10 == x);
     }
 }
+
+
+/** Another approach is to calculate its Palindrome explicitly */
+class 009PalindromeNumber {
+    public static boolean isPalindrome(int x) {
+        if (x < 0) return false;
+        int x_copy = x; // Do not forget a copy 
+        int reserve = 0;
+        while (x != 0) {
+            reserve = 10 * reserve + x % 10;
+            x = x / 10;
+        }
+        return reserve == x_copy;
+    }
+}
