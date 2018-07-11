@@ -29,13 +29,12 @@ public class 0153Sum {
         
         Arrays.sort(nums);
         if (nums[0] > 0 || nums[nums.length - 1] < 0) return list;
-        int left;
-        int right;
         for (int i = 0; i < nums.length - 2; i++) {
-            left = i + 1;
-            right = nums.length - 1;
+            int left = i + 1;
+            int right = nums.length - 1;
             while (left < right) {
-                if (nums[i] + nums[left] + nums[right] == 0) {
+                int sum = nums[i] + nums[left] + nums[right];
+                if (sum == 0) {
                     list.add(Arrays.asList(nums[i], nums[left], nums[right]));
                     while (left < right && nums[left] == nums[left + 1]) {
                         left++;
@@ -45,7 +44,7 @@ public class 0153Sum {
                     }
                     right--;
                     left++;
-                } else if (nums[i] + nums[left] + nums[right] > 0) {
+                } else if (sum > 0) {
                     while (left < right && nums[right] == nums[right-1]) {
                         right--;
                     }
