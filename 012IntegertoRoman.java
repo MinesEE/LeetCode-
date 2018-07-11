@@ -53,6 +53,13 @@ Input: 1994
 Output: "MCMXCIV"
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 */
+
+
+/**
+Idea:
+1. Find the pattern
+2. num / div < 4 && num / div > 0 instead of 0 < num /div < 4.
+*/
 import java.util.*;
 class 012IntegertoRoman {
     public static String intToRoman(int num) {
