@@ -46,8 +46,14 @@ public class 0153Sum {
                     right--;
                     left++;
                 } else if (nums[i] + nums[left] + nums[right] > 0) {
+                    while (left < right && nums[right] == nums[right-1]) {
+                        right--;
+                    }
                     right--;
                 } else {
+                    while (left < right && nums[left] == nums[left + 1]) {
+                        left++;
+                    }
                     left++;
                 }
             }
