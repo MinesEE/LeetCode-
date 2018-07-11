@@ -20,6 +20,7 @@ A solution set is:
 /**
 Idea:
 1. re-write sometime later 
+2. Two Pointer method 
 */
 public class 0153Sum {
     public List<List<Integer>> threeSum(int[] nums) {
