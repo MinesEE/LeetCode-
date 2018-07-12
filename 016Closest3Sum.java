@@ -47,10 +47,4 @@ public class 016Closest3Sum {
         }
         return res;
     }
-    public static void main(String[] args) {
-        int[] num = new int[]{-1, 2, 1, -4};
-        int tar = 1;
-        int res = threeSumClosest(num, tar);
-        System.out.println(res);
-    }
 }
