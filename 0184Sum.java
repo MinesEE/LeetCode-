@@ -18,47 +18,47 @@ A solution set is:
 */
 class 0184Sum {
     public List<List<Integer>> fourSum(int[] nums, int target) {
-    List<List<Integer>> list = new ArrayList<List<Integer>>();
-    if (nums == null || nums.length < 4) {
-        return list;
-    }
-    Arrays.sort(nums);
-    for (int i = 0; i < nums.length - 3; i++) {
-        for (int j = i + 1; j < nums.length - 2; j++) {
-            int left = j + 1;
-            int right = nums.length - 1;
-            while (left < right) {
-                int sum = nums[i] + nums[j] + nums[left] + nums[right];
-                if (sum == target) {
-                    list.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
-                    while (left < right && nums[right] == nums[right - 1]) {
+        List<List<Integer>> list = new ArrayList<List<Integer>>();
+        if (nums == null || nums.length < 4) {
+            return list;
+        }
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 3; i++) {
+            for (int j = i + 1; j < nums.length - 2; j++) {
+                int left = j + 1;
+                int right = nums.length - 1;
+                while (left < right) {
+                    int sum = nums[i] + nums[j] + nums[left] + nums[right];
+                    if (sum == target) {
+                        list.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
+                        while (left < right && nums[right] == nums[right - 1]) {
+                            right--;
+                        }
+                        while (left < right && nums[left] == nums[left + 1]) {
+                            left++;
+                        }
                         right--;
-                    }
-                    while (left < right && nums[left] == nums[left + 1]) {
+                        left++;
+                    } else if (sum > target) {
+                        while (left < right && nums[right] == nums[right - 1]) {
+                            right--;
+                        }
+                        right--;
+                    } else {
+                        while (left < right && nums[left] == nums[left + 1]) {  
+                            left++;
+                        }
                         left++;
                     }
-                    right--;
-                    left++;
-                } else if (sum > target) {
-                    while (left < right && nums[right] == nums[right - 1]) {
-                        right--;
-                    }
-                    right--;
-                } else {
-                    while (left < right && nums[left] == nums[left + 1]) {  
-                        left++;
-                    }
-                    left++;
+                }
+                while (j < nums.length - 2 && nums[j] == nums[j + 1]) {
+                    j++;
                 }
             }
-            while (j < nums.length - 2 && nums[j] == nums[j + 1]) {
-                j++;
+            while (i < nums.length - 3 && nums[i] == nums[i + 1]) {
+                i++;
             }
         }
-        while (i < nums.length - 3 && nums[i] == nums[i + 1]) {
-            i++;
-        }
-    }
-    return list;
+        return list;
     }
 }
