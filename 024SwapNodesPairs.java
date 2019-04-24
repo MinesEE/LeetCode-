@@ -26,8 +26,8 @@ class 024SwapNodesPairs {
             prev.next = head;
             head.next = p;
             p.next = q;
-            head = head.next.next;
-            prev = prev.next.next;
+            head = q;
+            prev = p;
         }
         
         return dummy.next;

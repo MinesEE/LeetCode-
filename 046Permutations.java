@@ -21,8 +21,8 @@ class 046Permutations {
         List<List<Integer>> list  = new ArrayList<List<Integer>>();
         
         if (nums == null || nums.length == 0) return list;
-        List<Integer> sublist = new ArrayList<Integer>();
         
+        List<Integer> sublist = new ArrayList<Integer>();
         dfs(list, sublist, nums);
         
         return list;
@@ -34,6 +34,7 @@ class 046Permutations {
         }
         for (int i = 0; i < nums.length; i++) {
             if (sublist.contains(nums[i])) continue;
+            
             int len = sublist.size();
             sublist.add(nums[i]);
             dfs(list, sublist, nums);
