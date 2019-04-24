@@ -24,7 +24,7 @@
 
 class Tree95 {
     public List<TreeNode> generateTrees(int n) {
-        if (n == 0) return new ArrayList<TreeNode>();
+        if (n <= 0) return new ArrayList<TreeNode>();
         
         return generateTrees(1, n);
     }
