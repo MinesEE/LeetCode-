@@ -32,7 +32,7 @@ class Array165 {
         int mid = lo + (hi - lo) / 2;
         if (nums[mid] < nums[mid + 1]) {
             return helper(nums, mid + 1, hi);
-        }else {
+        } else {
             return helper(nums, lo, mid);
         }
     }
