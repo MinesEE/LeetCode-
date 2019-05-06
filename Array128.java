@@ -19,6 +19,7 @@ class Array128 {
             } else if (hash.containsKey(nums[i] - 1) && hash.containsKey(nums[i] + 1)) {
                 int temp1 = hash.get(nums[i] - 1);
                 int temp2 = hash.get(nums[i] + 1);
+                hash.put(nums[i], temp1 + temp2 + 1);// Must add this line of code
                 hash.put(nums[i] - temp1, temp1 + temp2 + 1);
                 hash.put(nums[i] + temp2, temp1 + temp2 + 1);
                 max = Math.max(max, temp1 + temp2 + 1);
