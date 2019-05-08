@@ -22,6 +22,7 @@ class Array152 {
             int temp = curMin;
             curMin = Math.min(curMin * nums[i], curMax * nums[i]);
             curMin = Math.min(curMin, nums[i]);
+            
             curMax = Math.max(curMax * nums[i], nums[i]);
             curMax = Math.max(temp * nums[i], curMax);
             max = Math.max(max, curMax);
