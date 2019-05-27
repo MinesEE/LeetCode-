@@ -1,4 +1,5 @@
 // 12. Integer to Roman
+//
 // Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 // 
 // Symbol       Value
@@ -79,6 +80,7 @@ class String12 {
             } else { return;}
         }
     }
+    
     private void sbuilder(StringBuilder sb, int re, char c1, char c2, char c3){
         if (re == 0) return;
         else if (re <= 3) {
@@ -92,7 +94,8 @@ class String12 {
             return; 
         } else if (re == 5) {
             sb.insert(0, c2);
-            return;  
+            return; 
+             
         } else if (re <= 8) {
             for (int i = 6; i <= re; i++) {
                 sb.insert(0, c1);
