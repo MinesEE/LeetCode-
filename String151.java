@@ -68,7 +68,7 @@ class String151 {
     }
     
     private void reserve(char[] s, int left, int right) {
-        // reserve string s from left to right
+        // reserve string from left to right
         
         while (right >= left) {
             char temp = s[left];
