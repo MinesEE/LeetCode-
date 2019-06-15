@@ -1,4 +1,4 @@
-// 172. Factorial Trailing Zeroes
+// 172. Factorial Trailing zeroes
 // Given an integer n, return the number of trailing zeroes in n!.
 // 
 // Example 1:
