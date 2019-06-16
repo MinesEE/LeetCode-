@@ -14,23 +14,37 @@
 // Input: [4,1,2,1,2]
 // Output: 4
 class HashTable136 {
+    // Use XOR
     public int singleNumber(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         if (nums.length == 1) return nums[0];
         
-        HashMap<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
-        for (int i = 0; i < nums.length; i++) {
-            if (hashMap.containsKey(nums[i])) {
-                hashMap.remove(nums[i]);
-            } else {
-                hashMap.put(nums[i], 1);
-            }
+        int result = 0;
+        for (int i = 0; i < nums.length;i++) {
+            result  = result ^ nums[i];
         }
-        for (Integer k: hashMap.keySet()) {
-            if (hashMap.get(k) == 1) {
-                return k;
-            }
-        }
-        return 0;
-    }
+        return result;
+        
+        
+        
+        
+//     public int singleNumber(int[] nums) {
+//         if (nums == null || nums.length == 0) return 0;
+//         if (nums.length == 1) return nums[0];
+//         
+//         HashMap<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
+//         for (int i = 0; i < nums.length; i++) {
+//             if (hashMap.containsKey(nums[i])) {
+//                 hashMap.remove(nums[i]);
+//             } else {
+//                 hashMap.put(nums[i], 1);
+//             }
+//         }
+//         for (Integer k: hashMap.keySet()) {
+//             if (hashMap.get(k) == 1) {
+//                 return k;
+//             }
+//         }
+//         return 0;
+     }
 }
