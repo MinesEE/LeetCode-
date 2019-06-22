@@ -54,7 +54,7 @@ class LinkedList148 {
                 p.next = right;
                 right = right.next;
             }
-            p = p.next;
+            p = p.next; // Don't forget this line
         }
         return dummy.next;
         
