@@ -32,48 +32,47 @@
 // 
 // Explanation: The endWord "cog" is not in wordList, therefore no possible transformation.
 class BFS127 {
-    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+    public int ladderLength(String beginWord, String endWord, List<String> wordList){
         if (wordList == null || wordList.size() == 0) return 0;
-        
         if (!wordList.contains(endWord)) return 0;
+        if(beginWord.equals(endWord)) return 2;
         
-        Queue<String> queue = new LinkedList<String>();
-        findWord(queue, beginWord, wordList);
+        HashSet<String> beginSet = new HashSet<String>();
+        HashSet<String> endSet = new HashSet<String>();
+        beginSet.add(beginWord);
+        endSet.add(endWord);
+        
+        wordList.remove(beginWord);
+        wordList.remove(endWord);
         
         int n = 2;
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                String word = queue.poll();
-                wordList.remove(word);
-                if (word.equals(endWord)) {
-                    return n;
-                } else {
-                   findWord(queue, word, wordList); 
+        
+        while (!beginSet.isEmpty()) {
+            HashSet<String> nextLevel = new HashSet<String>();
+            for (String word: beginSet) {
+                char[] charArray = word.toCharArray();
+                for (int i = 0; i < charArray.length; i++) {
+                    for (char j = 'a'; j <= 'z'; j++) {
+                        charArray[i] = j;
+                        String str = String.valueOf(charArray);
+                        if (endSet.contains(str)) return n;
+                        
+                        if (wordList.contains(str)) {
+                            nextLevel.add(str);
+                            wordList.remove(str);
+                        }
+                    }
+                    charArray = word.toCharArray();
                 }
             }
             n++;
-        }
-        return 0;  
-    }
-    
-    private void findWord(Queue<String> queue, String word, List<String> wordList) {
-        // Given a word, find all of possible nearby word from the wordList and 
-        // put them into a List.
-        for (int i = 0; i < wordList.size(); i++) {
-            if (ifNearby(word, wordList.get(i))) {
-                queue.add(wordList.get(i));
-                // wordList.remove(i);
+            if (nextLevel.size() < endSet.size()) {
+                beginSet = nextLevel;
+            } else {
+                beginSet = endSet;
+                endSet = nextLevel;
             }
         }
-    }
-    
-    private boolean ifNearby(String word1, String word2) {
-        int count = 0;
-        for (int i = 0; i < word1.length(); i++) {
-            if (count > 1) return false;
-            if (word1.charAt(i) != word2.charAt(i)) count++;
-        }
-        return count == 1;
+        return 0;
     }
 }
